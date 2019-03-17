@@ -2,9 +2,10 @@
   "name": "sonarqube-build-breaker",
   "version": "0.0.0",
   "description": "https://github.com/NaturesProphet/sonarqube-build-breaker.git",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "main": "src/index.js",
+  "scripts": {},
+  "bin": {
+    "index": "src/index.js"
   },
   "repository": {
     "type": "git",
