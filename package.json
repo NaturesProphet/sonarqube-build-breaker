@@ -1,0 +1,28 @@
+{
+  "name": "sonarqube-build-breaker",
+  "version": "0.0.0",
+  "description": "https://github.com/NaturesProphet/sonarqube-build-breaker.git",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NaturesProphet/sonarqube-build-breaker.git"
+  },
+  "keywords": [
+    "sonarqube",
+    "build",
+    "ci",
+    "build-breaker",
+    "quality",
+    "sonar-scanner",
+    "sonarcloud"
+  ],
+  "author": "Mateus Garcia",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/NaturesProphet/sonarqube-build-breaker/issues"
+  },
+  "homepage": "https://github.com/NaturesProphet/sonarqube-build-breaker#readme"
+}
