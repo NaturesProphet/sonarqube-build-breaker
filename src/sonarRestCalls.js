@@ -12,7 +12,6 @@ async function getStatus ( restUri, sonarToken ) {
         },
         json: true
     }
-    const response = await request.get( options );
     return new Promise(
         async function ( resolve, reject ) {
             try {
