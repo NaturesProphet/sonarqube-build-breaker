@@ -1,6 +1,6 @@
 {
   "name": "sonarqube-build-breaker",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "https://github.com/NaturesProphet/sonarqube-build-breaker.git",
   "main": "src/index.js",
   "scripts": {
