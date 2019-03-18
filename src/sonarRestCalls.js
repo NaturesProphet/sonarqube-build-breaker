@@ -1,11 +1,14 @@
 var request = require( 'request-promise' );
 
 
-async function getStatus ( restUri ) {
+async function getStatus ( restUri, sonarToken ) {
     const options = {
         uri: restUri,
         headers: {
             'User-Agent': 'Request-Promise',
+        },
+        auth: {
+            'user': sonarToken
         },
         json: true
     }

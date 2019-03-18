@@ -1,11 +1,12 @@
 {
   "name": "sonarqube-build-breaker",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "https://github.com/NaturesProphet/sonarqube-build-breaker.git",
   "main": "src/index.js",
   "scripts": {
     "release": "standard-version",
-    "commit": "git-cz"
+    "commit": "git-cz",
+    "sonar:build": "node sonarBreaker.js"
   },
   "bin": {
     "index": "src/index.js"

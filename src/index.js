@@ -20,8 +20,9 @@ const restClient = require( './sonarRestCalls' );
  * Função que le o log do sonar-scanner e verifica o quality gate correspondente
  * @param {*} sonarqubeHost endereço do servidor do sonar. exemplo: 'http://localhost:9000'
  * @param {*} reportTaskFile caminho do arquivo reportTask gerado pelo sonar-scanner
+ * @param {*} sonarToken Token de autenticação do projeto no sonarqube
  */
-async function checkQuality ( sonarqubeHost, reportTaskFile, ) {
+async function checkQuality ( sonarqubeHost, reportTaskFile, sonarToken ) {
     /*################################################################################*/
     /*################################# PASSO 1 ######################################*/
     /*################################################################################*/
@@ -45,7 +46,7 @@ async function checkQuality ( sonarqubeHost, reportTaskFile, ) {
     let errorCount = 0;
     while ( taskStatus != 'SUCCESS' ) {
         try {
-            taskResponse = await restClient.getStatus( taskRouteUri );
+            taskResponse = await restClient.getStatus( taskRouteUri, sonarToken );
             taskStatus = taskResponse.task.status;
             if ( taskStatus == 'CANCELED' || taskStatus == 'FAILED' ) {
                 console.log( `A tarefa de analise nao foi bem sucedida` );
@@ -70,7 +71,7 @@ async function checkQuality ( sonarqubeHost, reportTaskFile, ) {
     let analysisId = taskResponse.task.analysisId;
     let QualityGateUri = `${sonarqubeHost}/api/qualitygates/project_status?analysisId=${analysisId}`;
     try {
-        let qualityStatus = await restClient.getStatus( QualityGateUri );
+        let qualityStatus = await restClient.getStatus( QualityGateUri, sonarToken );
         if ( qualityStatus.projectStatus.status == 'OK' ) {
             console.log( 'Qualidade aprovada pelo Sonarqube!' );
             process.exit( 0 );
